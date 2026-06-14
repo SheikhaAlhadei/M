@@ -1,0 +1,3156 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AppCo – Best Way to Connect with Your Customers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --purple:      #6C5CE7;
+    --purple-dark: #5549C0;
+    --purple-light:#A29BFE;
+    --purple-pale: #F3F0FF;
+    --white:       #FFFFFF;
+    --gray-50:     #F8F9FC;
+    --gray-100:    #EEF0F6;
+    --gray-400:    #9A9DB0;
+    --gray-600:    #5C5F73;
+    --gray-900:    #1A1B2E;
+    --radius-sm:   6px;
+    --radius-md:   12px;
+    --radius-lg:   20px;
+    --radius-xl:   32px;
+    --shadow-card: 0 4px 24px rgba(108,92,231,0.08);
+    --shadow-btn:  0 8px 24px rgba(108,92,231,0.35);
+    --font:        'Cairo', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    color: var(--gray-900);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ───────────── NAVBAR ───────────── */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(108,92,231,0.10);
+    height: 68px;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .nav-logo-icon {
+    width: 34px; height: 34px;
+    background: var(--purple);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .nav-logo-icon svg { width: 18px; height: 18px; fill: white; }
+
+  .nav-logo-text {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gray-900);
+    letter-spacing: -0.3px;
+  }
+
+  .nav-logo-text span { color: var(--purple); }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gray-600);
+    padding: 7px 14px;
+    border-radius: var(--radius-sm);
+    transition: color 0.18s, background 0.18s;
+  }
+
+  .nav-links a:hover {
+    color: var(--purple);
+    background: var(--purple-pale);
+  }
+
+  .nav-links a.active { color: var(--purple); }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+
+  .btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font); font-weight: 600; font-size: 14px; border: none; cursor: pointer; text-decoration: none; transition: all 0.2s; }
+  .btn-ghost { background: transparent; color: var(--gray-600); padding: 8px 16px; border-radius: var(--radius-sm); }
+  .btn-ghost:hover { color: var(--purple); background: var(--purple-pale); }
+  .btn-primary { background: var(--purple); color: white; padding: 9px 22px; border-radius: var(--radius-md); box-shadow: var(--shadow-btn); }
+  .btn-primary:hover { background: var(--purple-dark); transform: translateY(-1px); box-shadow: 0 12px 28px rgba(108,92,231,0.42); }
+  .btn-primary:active { transform: translateY(0); }
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--gray-900); border-radius: 2px; transition: all 0.2s; }
+
+  /* ───────────── HERO ───────────── */
+  .hero {
+    padding-top: 68px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: var(--white);
+  }
+
+  .hero-bg-shape {
+    position: absolute;
+    top: -60px; right: -100px;
+    width: 700px; height: 700px;
+    background: linear-gradient(135deg, #6C5CE7 0%, #A29BFE 60%, #DDD6FE 100%);
+    border-radius: 50% 50% 50% 30% / 50% 40% 60% 50%;
+    opacity: 0.12;
+    pointer-events: none;
+  }
+
+  .hero-bg-dot {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .hero-bg-dot-1 { width: 12px; height: 12px; background: var(--purple); opacity: 0.25; top: 22%; left: 10%; }
+  .hero-bg-dot-2 { width: 7px;  height: 7px;  background: var(--purple-light); opacity: 0.4; top: 60%; left: 6%; }
+  .hero-bg-dot-3 { width: 18px; height: 18px; background: var(--purple-pale); border: 2px solid var(--purple-light); top: 40%; right: 14%; }
+  .hero-bg-dot-4 { width: 9px;  height: 9px;  background: var(--purple); opacity: 0.18; bottom: 20%; right: 8%; }
+
+  .hero-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 80px 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 64px;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--purple-pale);
+    border: 1px solid rgba(108,92,231,0.2);
+    border-radius: 100px;
+    padding: 6px 14px 6px 8px;
+    margin-bottom: 24px;
+  }
+
+  .hero-badge-dot {
+    width: 20px; height: 20px;
+    background: var(--purple);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .hero-badge-dot svg { width: 10px; height: 10px; fill: white; }
+
+  .hero-badge span {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--purple);
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+
+  .hero-title {
+    font-size: clamp(36px, 4.5vw, 54px);
+    font-weight: 800;
+    line-height: 1.13;
+    letter-spacing: -1.5px;
+    color: var(--gray-900);
+    margin-bottom: 20px;
+  }
+
+  .hero-title .accent {
+    color: var(--purple);
+    position: relative;
+    display: inline-block;
+  }
+
+  .hero-title .accent::after {
+    content: '';
+    position: absolute;
+    bottom: 4px; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--purple), var(--purple-light));
+    border-radius: 2px;
+    opacity: 0.35;
+  }
+
+  .hero-desc {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--gray-600);
+    max-width: 480px;
+    margin-bottom: 36px;
+  }
+
+  .hero-cta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-hero {
+    background: var(--purple);
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px 28px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-btn);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: all 0.22s;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font);
+  }
+
+  .btn-hero:hover { background: var(--purple-dark); transform: translateY(-2px); box-shadow: 0 16px 36px rgba(108,92,231,0.45); }
+
+  .btn-hero svg { width: 16px; height: 16px; fill: white; }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--gray-600);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px 24px;
+    border-radius: var(--radius-md);
+    border: 1.5px solid var(--gray-100);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: all 0.22s;
+    cursor: pointer;
+    font-family: var(--font);
+  }
+
+  .btn-outline:hover { border-color: var(--purple-light); color: var(--purple); background: var(--purple-pale); }
+
+  .hero-stats {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin-top: 44px;
+    padding-top: 36px;
+    border-top: 1px solid var(--gray-100);
+  }
+
+  .hero-stat { display: flex; flex-direction: column; gap: 2px; }
+  .hero-stat-num { font-size: 26px; font-weight: 800; color: var(--gray-900); letter-spacing: -0.8px; }
+  .hero-stat-num span { color: var(--purple); }
+  .hero-stat-label { font-size: 13px; color: var(--gray-400); font-weight: 500; }
+  .hero-stat-divider { width: 1px; height: 40px; background: var(--gray-100); }
+
+  /* Hero Visual */
+  .hero-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .hero-card-stack {
+    position: relative;
+    width: 380px;
+    height: 420px;
+  }
+
+  .hero-card {
+    position: absolute;
+    border-radius: var(--radius-lg);
+    background: white;
+    box-shadow: 0 20px 60px rgba(108,92,231,0.15);
+    padding: 24px;
+  }
+
+  .card-main {
+    width: 300px;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    z-index: 3;
+  }
+
+  .card-back-1 {
+    width: 260px;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -54%) rotate(-6deg);
+    background: var(--purple);
+    z-index: 1;
+    opacity: 0.9;
+  }
+
+  .card-back-2 {
+    width: 270px;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -47%) rotate(4deg);
+    background: linear-gradient(135deg, #A29BFE, #6C5CE7);
+    z-index: 2;
+    opacity: 0.7;
+  }
+
+  .card-main-icon {
+    width: 48px; height: 48px;
+    background: var(--purple-pale);
+    border-radius: var(--radius-sm);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .card-main-icon svg { width: 24px; height: 24px; fill: var(--purple); }
+
+  .card-main-title { font-size: 15px; font-weight: 700; color: var(--gray-900); margin-bottom: 6px; }
+  .card-main-sub   { font-size: 13px; color: var(--gray-400); line-height: 1.5; margin-bottom: 20px; }
+
+  .card-progress-bar {
+    height: 6px;
+    background: var(--gray-100);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+
+  .card-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--purple), var(--purple-light));
+    border-radius: 3px;
+    width: 72%;
+  }
+
+  .card-progress-label { display: flex; justify-content: space-between; font-size: 11px; font-weight: 600; }
+  .card-progress-label .pct { color: var(--purple); }
+  .card-progress-label .lbl { color: var(--gray-400); }
+
+  .card-notification {
+    position: absolute;
+    right: -24px;
+    bottom: 60px;
+    background: white;
+    border-radius: var(--radius-md);
+    box-shadow: 0 8px 30px rgba(108,92,231,0.18);
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 10;
+    white-space: nowrap;
+  }
+
+  .notif-icon {
+    width: 32px; height: 32px;
+    background: #ECFDF5;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .notif-icon svg { width: 16px; height: 16px; fill: #059669; }
+  .notif-text strong { font-size: 13px; font-weight: 700; color: var(--gray-900); display: block; }
+  .notif-text span   { font-size: 11px; color: var(--gray-400); }
+
+  .card-users {
+    position: absolute;
+    left: -20px;
+    top: 60px;
+    background: white;
+    border-radius: var(--radius-md);
+    box-shadow: 0 8px 30px rgba(108,92,231,0.15);
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 10;
+  }
+
+  .avatars { display: flex; }
+  .avatars .av {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin-left: -8px;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    color: white;
+  }
+
+  .avatars .av:first-child { margin-left: 0; }
+  .av-1 { background: #6C5CE7; }
+  .av-2 { background: #00B894; }
+  .av-3 { background: #FDCB6E; }
+
+  .card-users-text { font-size: 12px; font-weight: 600; color: var(--gray-900); }
+  .card-users-text span { color: var(--purple); }
+
+  /* ───────────── PAIN POINTS ───────────── */
+  .pain {
+    background: var(--white);
+    padding: 100px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pain::before {
+    content: '';
+    position: absolute;
+    bottom: -120px; left: -120px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(108,92,231,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 580px;
+    margin: 0 auto 64px;
+  }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--purple);
+    margin-bottom: 14px;
+    background: var(--purple-pale);
+    border: 1px solid rgba(108,92,231,0.2);
+    padding: 5px 12px;
+    border-radius: 100px;
+  }
+
+  .section-eyebrow-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--purple);
+    animation: pulse-dot 1.8s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%,100% { opacity: 1; transform: scale(1); }
+    50%      { opacity: 0.4; transform: scale(0.7); }
+  }
+
+  .section-title {
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 800;
+    letter-spacing: -1.2px;
+    color: var(--gray-900);
+    line-height: 1.18;
+    margin-bottom: 16px;
+  }
+
+  .section-title .highlight { color: var(--purple); }
+
+  .section-desc {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--gray-400);
+  }
+
+  .pain-grid {
+    max-width: 1160px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    align-items: stretch;
+  }
+
+  .pain-card {
+    background: var(--gray-50);
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    border: 1.5px solid var(--gray-100);
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pain-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(108,92,231,0.04), transparent);
+    opacity: 0;
+    transition: opacity 0.25s;
+    pointer-events: none;
+  }
+
+  .pain-card:hover { border-color: rgba(108,92,231,0.25); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(108,92,231,0.08); }
+  .pain-card:hover::after { opacity: 1; }
+
+  .pain-icon-wrap {
+    width: 52px; height: 52px;
+    border-radius: var(--radius-md);
+    background: var(--purple-pale);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+    transition: background 0.25s;
+  }
+
+  .pain-card:hover .pain-icon-wrap { background: #DDD6FE; }
+
+  .pain-icon-wrap svg {
+    width: 24px; height: 24px;
+    stroke: var(--purple);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .pain-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--purple);
+    background: var(--purple-pale);
+    border-radius: 4px;
+    padding: 3px 8px;
+    margin-bottom: 10px;
+  }
+
+  .pain-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 10px;
+    letter-spacing: -0.3px;
+    line-height: 1.3;
+  }
+
+  .pain-desc {
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--gray-400);
+  }
+
+  .pain-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid var(--gray-100);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--purple);
+  }
+
+  .pain-check svg {
+    width: 16px; height: 16px;
+    fill: none;
+    stroke: var(--purple);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+  }
+
+  .pain-cta-strip {
+    max-width: 1160px;
+    margin: 48px auto 0;
+    background: linear-gradient(135deg, var(--purple) 0%, #A29BFE 100%);
+    border-radius: var(--radius-lg);
+    padding: 36px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .pain-cta-strip-text strong { display: block; font-size: 20px; font-weight: 800; color: white; letter-spacing: -0.5px; margin-bottom: 4px; }
+  .pain-cta-strip-text span   { font-size: 14px; color: rgba(255,255,255,0.72); }
+
+  .btn-white {
+    background: white;
+    color: var(--purple);
+    font-family: var(--font);
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 24px;
+    border-radius: var(--radius-md);
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    flex-shrink: 0;
+  }
+
+  .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+  .btn-white svg { width: 14px; height: 14px; fill: none; stroke: var(--purple); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* ───────────── SHOWCASE ───────────── */
+  .showcase {
+    background: var(--gray-50);
+    padding: 100px 32px;
+    overflow: hidden;
+  }
+
+  .showcase-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 80px;
+  }
+
+  .showcase-content { }
+
+  .showcase-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--purple);
+    margin-bottom: 16px;
+    background: var(--purple-pale);
+    border: 1px solid rgba(108,92,231,0.2);
+    padding: 5px 12px;
+    border-radius: 100px;
+  }
+
+  .showcase-title {
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: var(--gray-900);
+    line-height: 1.18;
+    margin-bottom: 16px;
+  }
+
+  .showcase-title span { color: var(--purple); }
+
+  .showcase-desc {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--gray-400);
+    margin-bottom: 36px;
+  }
+
+  .showcase-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .showcase-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .showcase-list-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    background: var(--purple-pale);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+    transition: background 0.2s;
+  }
+
+  .showcase-list li:hover .showcase-list-icon { background: var(--purple); }
+
+  .showcase-list-icon svg {
+    width: 15px; height: 15px;
+    stroke: var(--purple);
+    fill: none;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.2s;
+  }
+
+  .showcase-list li:hover .showcase-list-icon svg { stroke: white; }
+
+  .showcase-list-text strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 2px;
+  }
+
+  .showcase-list-text span {
+    font-size: 13px;
+    color: var(--gray-400);
+    line-height: 1.6;
+  }
+
+  /* Phone mockup */
+  .showcase-phone-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .showcase-phone-wrap::before {
+    content: '';
+    position: absolute;
+    width: 320px; height: 320px;
+    background: radial-gradient(circle, rgba(108,92,231,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .phone-frame {
+    width: 240px;
+    background: var(--gray-900);
+    border-radius: 36px;
+    padding: 10px;
+    box-shadow: 0 40px 80px rgba(26,27,46,0.3), 0 0 0 1px rgba(255,255,255,0.08);
+    position: relative;
+    z-index: 2;
+  }
+
+  .phone-notch {
+    width: 80px; height: 22px;
+    background: var(--gray-900);
+    border-radius: 0 0 14px 14px;
+    margin: 0 auto 6px;
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .phone-notch-cam {
+    width: 8px; height: 8px;
+    background: #2d2d3a;
+    border-radius: 50%;
+    border: 1.5px solid #3a3a4a;
+  }
+
+  .phone-notch-mic {
+    width: 24px; height: 4px;
+    background: #2d2d3a;
+    border-radius: 2px;
+  }
+
+  .phone-screen {
+    background: white;
+    border-radius: 26px;
+    overflow: hidden;
+    height: 480px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* App UI inside phone */
+  .app-header {
+    background: var(--purple);
+    padding: 16px 16px 20px;
+  }
+
+  .app-header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+
+  .app-greeting { font-size: 10px; color: rgba(255,255,255,0.7); font-weight: 500; }
+  .app-name     { font-size: 13px; color: white; font-weight: 700; margin-top: 1px; }
+
+  .app-avatar {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    border: 1.5px solid rgba(255,255,255,0.4);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; color: white;
+  }
+
+  .app-stats-row {
+    display: flex;
+    gap: 8px;
+  }
+
+  .app-stat-pill {
+    flex: 1;
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    padding: 8px 10px;
+    backdrop-filter: blur(4px);
+  }
+
+  .app-stat-pill-num  { font-size: 14px; font-weight: 800; color: white; line-height: 1; }
+  .app-stat-pill-lbl  { font-size: 9px;  color: rgba(255,255,255,0.65); font-weight: 500; margin-top: 2px; }
+
+  .app-body { padding: 14px; flex: 1; }
+
+  .app-section-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--gray-400);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 8px;
+  }
+
+  .app-task-list { display: flex; flex-direction: column; gap: 7px; margin-bottom: 14px; }
+
+  .app-task {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--gray-50);
+    border-radius: 10px;
+    padding: 9px 10px;
+    border: 1px solid var(--gray-100);
+  }
+
+  .app-task-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .app-task-info { flex: 1; }
+  .app-task-name { font-size: 10px; font-weight: 600; color: var(--gray-900); }
+  .app-task-sub  { font-size: 9px; color: var(--gray-400); margin-top: 1px; }
+
+  .app-task-badge {
+    font-size: 8px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  .badge-done   { background: #ECFDF5; color: #059669; }
+  .badge-prog   { background: var(--purple-pale); color: var(--purple); }
+  .badge-wait   { background: #FEF9C3; color: #A16207; }
+
+  .app-chart-area {
+    background: var(--gray-50);
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid var(--gray-100);
+    margin-bottom: 10px;
+  }
+
+  .app-chart-label { font-size: 9px; font-weight: 700; color: var(--gray-600); margin-bottom: 8px; }
+
+  .app-chart-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    height: 40px;
+  }
+
+  .app-bar {
+    flex: 1;
+    border-radius: 3px 3px 0 0;
+    background: var(--purple-pale);
+    transition: background 0.2s;
+  }
+
+  .app-bar.active { background: var(--purple); }
+
+  .app-notif {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--purple-pale);
+    border-radius: 10px;
+    padding: 9px 10px;
+    border: 1px solid rgba(108,92,231,0.15);
+  }
+
+  .app-notif-icon {
+    width: 22px; height: 22px;
+    background: var(--purple);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .app-notif-icon svg { width: 11px; height: 11px; stroke: white; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+  .app-notif-text strong { font-size: 10px; font-weight: 700; color: var(--purple); display: block; }
+  .app-notif-text span   { font-size: 9px; color: var(--gray-400); }
+
+  /* floating badges */
+  .showcase-badge {
+    position: absolute;
+    background: white;
+    border-radius: var(--radius-md);
+    box-shadow: 0 8px 30px rgba(108,92,231,0.15);
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 10;
+    white-space: nowrap;
+  }
+
+  .showcase-badge-left  { left: -24px; bottom: 100px; }
+  .showcase-badge-right { right: -20px; top: 100px; }
+
+  .sbadge-icon {
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .sbadge-icon svg { width: 13px; height: 13px; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+  .sbadge-text strong { font-size: 11px; font-weight: 700; color: var(--gray-900); display: block; }
+  .sbadge-text span   { font-size: 10px; color: var(--gray-400); }
+
+  /* ───────────── WHY US — Pinterest style ───────────── */
+  .why {
+    background: #A29BFE;
+    padding: 110px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .why-inner { max-width: 1100px; margin: 0 auto; }
+
+  /* Header */
+  .why-header {
+    text-align: center;
+    max-width: 560px;
+    margin: 0 auto 72px;
+  }
+
+  .why-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: white;
+    margin-bottom: 16px;
+    opacity: 0.85;
+  }
+
+  .why-eyebrow-line {
+    width: 32px; height: 1.5px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 2px;
+  }
+
+  .why-title {
+    font-size: clamp(30px, 4vw, 46px);
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    color: white;
+    line-height: 1.15;
+    margin-bottom: 14px;
+  }
+
+  .why-title span { color: #d6e4f0; }
+
+  .why-desc {
+    font-size: 15px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.72);
+  }
+
+  /* Pinterest numbered grid */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 24px;
+    overflow: hidden;
+  }
+
+  .why-item {
+    background: rgba(255,255,255,0.08);
+    padding: 40px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: background 0.22s;
+    cursor: default;
+    position: relative;
+  }
+
+  .why-item:hover { background: rgba(255,255,255,0.16); }
+
+  .why-item-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .why-num {
+    font-size: 12px;
+    font-weight: 800;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1px;
+  }
+
+  .why-num-line {
+    width: 32px; height: 1.5px;
+    background: rgba(255,255,255,0.2);
+    margin-top: 6px;
+    flex: 1;
+    margin-left: 12px;
+    margin-right: 12px;
+    align-self: center;
+  }
+
+  .why-icon {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.15);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.22s;
+  }
+
+  .why-item:hover .why-icon { background: rgba(255,255,255,0.28); }
+
+  .why-icon svg {
+    width: 18px; height: 18px;
+    stroke: white;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .why-item:hover .why-icon svg { stroke: white; }
+
+  .why-item-title {
+    font-size: 17px;
+    font-weight: 800;
+    color: #1a2332;
+    letter-spacing: -0.4px;
+    line-height: 1.3;
+  }
+
+  .why-item-desc {
+    font-size: 14px;
+    line-height: 1.75;
+    color: #2d3d50;
+  }
+
+  /* Stats row */
+  .why-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 20px;
+  }
+
+  .why-stat {
+    background: rgba(255,255,255,0.08);
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    transition: background 0.2s;
+  }
+
+  .why-stat:hover { background: rgba(255,255,255,0.16); }
+
+  .why-stat-num {
+    font-size: 34px;
+    font-weight: 900;
+    color: white;
+    letter-spacing: -1.5px;
+    line-height: 1;
+  }
+
+  .why-stat-num span { color: #d6e4f0; font-size: 20px; font-weight: 700; }
+
+  .why-stat-label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    font-weight: 600;
+  }
+
+  /* ───────────── PRICING ───────────── */
+  .pricing {
+    background: var(--gray-50);
+    padding: 110px 32px;
+  }
+
+  .pricing-inner { max-width: 1100px; margin: 0 auto; }
+
+  .pricing-header {
+    text-align: center;
+    margin-bottom: 52px;
+  }
+
+  .pricing-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--purple);
+    margin-bottom: 12px;
+  }
+
+  .pricing-title {
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 900;
+    letter-spacing: -1.2px;
+    color: var(--gray-900);
+    line-height: 1.15;
+    margin-bottom: 8px;
+  }
+
+  .pricing-sub {
+    font-size: 15px;
+    color: var(--gray-400);
+    margin-bottom: 28px;
+  }
+
+  /* Toggle */
+  .pricing-toggle {
+    display: inline-flex;
+    align-items: center;
+    background: white;
+    border: 1.5px solid var(--gray-100);
+    border-radius: 100px;
+    padding: 5px;
+    gap: 4px;
+  }
+
+  .toggle-btn {
+    font-family: var(--font);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: transparent;
+    color: var(--gray-400);
+  }
+
+  .toggle-btn.active {
+    background: var(--purple);
+    color: white;
+    box-shadow: 0 4px 14px rgba(108,92,231,0.35);
+  }
+
+  .toggle-save {
+    font-size: 10px;
+    font-weight: 700;
+    background: #ECFDF5;
+    color: #059669;
+    padding: 3px 8px;
+    border-radius: 100px;
+    margin-right: 4px;
+  }
+
+  /* Cards grid */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: start;
+  }
+
+  .pricing-card {
+    background: white;
+    border-radius: 24px;
+    padding: 36px 32px;
+    border: 1.5px solid var(--gray-100);
+    transition: transform 0.25s, box-shadow 0.25s;
+    position: relative;
+  }
+
+  .pricing-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(108,92,231,0.10);
+  }
+
+  .pricing-card--popular {
+    background: var(--purple);
+    border-color: var(--purple);
+    transform: scale(1.04);
+    box-shadow: 0 24px 60px rgba(108,92,231,0.35);
+  }
+
+  .pricing-card--popular:hover {
+    transform: scale(1.04) translateY(-4px);
+    box-shadow: 0 32px 72px rgba(108,92,231,0.45);
+  }
+
+  .popular-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    color: var(--purple);
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 5px 14px;
+    border-radius: 100px;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(108,92,231,0.2);
+  }
+
+  .pricing-plan {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--gray-400);
+    margin-bottom: 16px;
+  }
+
+  .pricing-card--popular .pricing-plan { color: rgba(255,255,255,0.7); }
+
+  .pricing-price {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    margin-bottom: 6px;
+  }
+
+  .price-currency {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--gray-900);
+    line-height: 1;
+    padding-bottom: 6px;
+  }
+
+  .price-amount {
+    font-size: 52px;
+    font-weight: 900;
+    color: var(--gray-900);
+    letter-spacing: -2px;
+    line-height: 1;
+  }
+
+  .price-period {
+    font-size: 14px;
+    color: var(--gray-400);
+    padding-bottom: 8px;
+  }
+
+  .pricing-card--popular .price-currency,
+  .pricing-card--popular .price-amount { color: white; }
+  .pricing-card--popular .price-period { color: rgba(255,255,255,0.65); }
+
+  .pricing-desc {
+    font-size: 13px;
+    color: var(--gray-400);
+    margin-bottom: 28px;
+    line-height: 1.6;
+  }
+
+  .pricing-card--popular .pricing-desc { color: rgba(255,255,255,0.7); }
+
+  .pricing-divider {
+    height: 1px;
+    background: var(--gray-100);
+    margin-bottom: 24px;
+  }
+
+  .pricing-card--popular .pricing-divider { background: rgba(255,255,255,0.2); }
+
+  .pricing-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .pricing-features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--gray-600);
+  }
+
+  .pricing-card--popular .pricing-features li { color: rgba(255,255,255,0.9); }
+
+  .feat-check {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: var(--purple-pale);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .feat-check svg { width: 10px; height: 10px; stroke: var(--purple); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+  .pricing-card--popular .feat-check { background: rgba(255,255,255,0.2); }
+  .pricing-card--popular .feat-check svg { stroke: white; }
+
+  .btn-pricing {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-family: var(--font);
+    font-size: 14px;
+    font-weight: 700;
+    padding: 14px;
+    border-radius: var(--radius-md);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.22s;
+  }
+
+  .btn-pricing--outline {
+    background: transparent;
+    color: var(--purple);
+    border: 1.5px solid var(--gray-100);
+  }
+
+  .btn-pricing--outline:hover {
+    border-color: var(--purple);
+    background: var(--purple-pale);
+  }
+
+  .btn-pricing--white {
+    background: white;
+    color: var(--purple);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  }
+
+  .btn-pricing--white:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    transform: translateY(-1px);
+  }
+
+  /* ───────────── CTA ───────────── */
+  .cta {
+    background: var(--gray-900);
+    padding: 120px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta::before {
+    content: '';
+    position: absolute;
+    top: -200px; left: 50%;
+    transform: translateX(-50%);
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(108,92,231,0.18) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .cta::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; right: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(162,155,254,0.1) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .cta-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .cta-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--purple-light);
+    margin-bottom: 28px;
+    opacity: 0.85;
+  }
+
+  .cta-eyebrow-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--purple-light);
+  }
+
+  .cta-title {
+    font-size: clamp(36px, 5.5vw, 66px);
+    font-weight: 900;
+    letter-spacing: -2.5px;
+    color: white;
+    line-height: 1.1;
+    margin-bottom: 24px;
+  }
+
+  .cta-title span {
+    color: var(--purple-light);
+  }
+
+  .cta-desc {
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.55);
+    max-width: 520px;
+    margin: 0 auto 36px;
+  }
+
+  .cta-bar {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 100px;
+    padding: 10px 20px 10px 14px;
+    margin-bottom: 40px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    font-weight: 500;
+  }
+
+  .cta-bar-badge {
+    background: var(--purple);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 100px;
+  }
+
+  .cta-bar strong { color: white; font-weight: 700; }
+
+  .cta-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .btn-cta-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--purple);
+    color: white;
+    font-family: var(--font);
+    font-size: 16px;
+    font-weight: 700;
+    padding: 16px 32px;
+    border-radius: var(--radius-md);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.22s;
+    box-shadow: 0 8px 32px rgba(108,92,231,0.45);
+  }
+
+  .btn-cta-primary:hover {
+    background: var(--purple-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(108,92,231,0.55);
+  }
+
+  .btn-cta-primary svg { width: 16px; height: 16px; fill: none; stroke: white; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+  .btn-cta-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.85);
+    font-family: var(--font);
+    font-size: 16px;
+    font-weight: 600;
+    padding: 16px 32px;
+    border-radius: var(--radius-md);
+    border: 1.5px solid rgba(255,255,255,0.12);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.22s;
+  }
+
+  .btn-cta-ghost:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.25);
+    color: white;
+  }
+
+  .btn-cta-ghost svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+  .cta-trust {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 52px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    flex-wrap: wrap;
+  }
+
+  .cta-trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    font-weight: 500;
+  }
+
+  .cta-trust-item svg { width: 15px; height: 15px; stroke: var(--purple-light); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; opacity: 0.8; }
+
+  /* ───────────── RESPONSIVE ───────────── */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 48px; }
+    .hero-desc { margin: 0 auto 36px; }
+    .hero-cta { justify-content: center; }
+    .hero-stats { justify-content: center; }
+    .hero-visual { display: none; }
+    .pricing-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+    .pricing-card--popular { transform: scale(1); }
+    .pricing-card--popular:hover { transform: translateY(-4px); }
+    .why-grid { grid-template-columns: 1fr; border-radius: 16px; }
+    .why-stats { grid-template-columns: repeat(2,1fr); }
+    .showcase-inner { grid-template-columns: 1fr; gap: 48px; }
+    .showcase-phone-wrap { order: -1; }
+    .pain-grid { grid-template-columns: repeat(2, 1fr); max-width: 100%; }
+    .pain-cta-strip { flex-direction: column; text-align: center; padding: 28px 24px; }
+  }
+
+  @media (max-width: 600px) {
+    .nav-inner { padding: 0 20px; }
+    .hero-inner { padding: 60px 20px; }
+    .features { padding: 72px 20px; }
+    .hero-stats { flex-wrap: wrap; gap: 20px; }
+    .hero-stat-divider { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─────────────────── NAVBAR ─────────────────── -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" aria-label="AppCo Home">
+      <div class="nav-logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <span class="nav-logo-text"><span>مقاول</span>+</span>
+    </a>
+
+    <ul class="nav-links" role="list">
+      <li><a href="#home" class="active">الرئيسية</a></li>
+      <li><a href="#features">المميزات</a></li>
+      <li><a href="#pricing">الأسعار</a></li>
+      <li><a href="#faq">تواصل معنا</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="#" class="btn btn-ghost">تسجيل الدخول</a>
+      <a href="#" class="btn btn-primary">
+        ابدأ الآن
+        <!-- <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="13" height="13"><path d="M5 12h14M12 5l7 7-7 7"/></svg> -->
+      </a>
+    </div>
+
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ─────────────────── HERO ─────────────────── -->
+<section class="hero" id="home" aria-label="Hero section">
+  <div class="hero-bg-shape" aria-hidden="true"></div>
+  <div class="hero-bg-dot hero-bg-dot-1" aria-hidden="true"></div>
+  <div class="hero-bg-dot hero-bg-dot-2" aria-hidden="true"></div>
+  <div class="hero-bg-dot hero-bg-dot-3" aria-hidden="true"></div>
+  <div class="hero-bg-dot hero-bg-dot-4" aria-hidden="true"></div>
+
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge" aria-label="New launch">
+        <div class="hero-badge-dot">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <span>مقاول+ · الإصدار الجديد</span>
+      </div>
+
+      <h1 class="hero-title">
+        خّل الفورمن يشتغل<br><span class="accent">وأنت تشوف كل شيء</span>
+      </h1>
+
+      <p class="hero-desc">
+        تكاليف مشاريعك، حضور عمالك، ومخزونك كلها في هاتفك لحظياً — بدون واتساب وبدون فوضى.
+      </p>
+
+      <div class="hero-cta">
+        <a href="#" class="btn-hero">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          جرّب مجاناً 14 يوم — بدون بطاقة بنكية
+        </a>
+      </div>
+
+      <div class="hero-stats" aria-label="إحصائيات">
+        <div class="hero-stat">
+          <span class="hero-stat-num">50<span>+</span></span>
+          <span class="hero-stat-label">مقاول يستخدمون مقاول+ الآن</span>
+        </div>
+        <div class="hero-stat-divider" aria-hidden="true"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">14<span>يوم</span></span>
+          <span class="hero-stat-label">تجربة مجانية كاملة</span>
+        </div>
+        <div class="hero-stat-divider" aria-hidden="true"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">0<span>ريال</span></span>
+          <span class="hero-stat-label">بدون بطاقة بنكية</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-card-stack">
+        <div class="hero-card card-back-1"></div>
+        <div class="hero-card card-back-2"></div>
+        <div class="hero-card card-main">
+          <div class="card-main-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div class="card-main-title">لوحة تحكم المشاريع</div>
+          <div class="card-main-sub">تابع كل مشروع لحظياً من هاتفك</div>
+          <div class="card-progress-bar">
+            <div class="card-progress-fill"></div>
+          </div>
+          <div class="card-progress-label">
+            <span class="lbl">الإنجاز</span>
+            <span class="pct">72%</span>
+          </div>
+        </div>
+
+        <div class="card-notification">
+          <div class="notif-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div class="notif-text">
+            <strong>المخزون انخفض — تنبيه تلقائي</strong>
+            <span>الآن</span>
+          </div>
+        </div>
+
+        <div class="card-users">
+          <div class="avatars">
+            <div class="av av-1">م</div>
+            <div class="av av-2">أ</div>
+            <div class="av av-3">س</div>
+          </div>
+          <div class="card-users-text"><span>50+</span> مقاول نشط</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────── PAIN POINTS ─────────────────── -->
+<section class="pain" id="features" aria-labelledby="pain-heading">
+  <div class="section-header">
+    <p class="section-eyebrow">
+      <span class="section-eyebrow-dot" aria-hidden="true"></span>
+      تحديات يومية
+    </p>
+    <h2 class="section-title" id="pain-heading">
+      هل تعاني من هذه <span class="highlight">المشاكل؟</span>
+    </h2>
+    <p class="section-desc">كثير من شركات المقاولات تخسر أرباحها بسبب مشاكل يمكن حلّها — مقاول+ صُمِّم خصيصاً لهذا.</p>
+  </div>
+
+  <div class="pain-grid">
+
+    <div class="pain-card">
+      <div class="pain-icon-wrap" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+      </div>
+      <span class="pain-tag">الفلوس</span>
+      <h3 class="pain-title">ما تعرف وين راحت الفلوس</h3>
+      <p class="pain-desc">كل يوم فلوس تروح بدون تفاصيل واضحة، وتعرف وين المشكلة بس بعد فوات الأوان.</p>
+      <div class="pain-check">
+        <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        تقارير مالية لحظية لكل مشروع
+      </div>
+    </div>
+
+    <div class="pain-card">
+      <div class="pain-icon-wrap" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      </div>
+      <span class="pain-tag">الفوضى</span>
+      <h3 class="pain-title">واتساب وإكسل وكلام كلام</h3>
+      <p class="pain-desc">بياناتك مشتتة بين الهاتف والجروبات والملفات — ما تقدر تثق في أي رقم عندك.</p>
+      <div class="pain-check">
+        <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        نظام واحد يجمع كل شيء
+      </div>
+    </div>
+
+    <div class="pain-card">
+      <div class="pain-icon-wrap" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <span class="pain-tag">المشاريع</span>
+      <h3 class="pain-title">مشاريع تتوقف وما تعرف ليش</h3>
+      <p class="pain-desc">تعرف إن المشروع خسران بعد ما خلص — مفيش وقت للتصحيح.</p>
+      <div class="pain-check">
+        <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        تنبيهات تلقائية قبل فوات الأوان
+      </div>
+    </div>
+
+    <div class="pain-card">
+      <div class="pain-icon-wrap" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+      </div>
+      <span class="pain-tag">الفريق</span>
+      <h3 class="pain-title">ما تعرف شو يسوي الفريق</h3>
+      <p class="pain-desc">الفورمن يقولك كل شيء تمام وأنت ما تقدر تتحقق — تعرف الحقيقة بعد فوات الأوان.</p>
+      <div class="pain-check">
+        <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        حضور وإنتاجية كل عامل موثق لحظياً
+      </div>
+    </div>
+
+  </div>
+
+</section>
+<section class="showcase" aria-labelledby="showcase-heading">
+  <div class="showcase-inner">
+
+    <!-- Content -->
+    <div class="showcase-content">
+      <p class="showcase-eyebrow">مقاول+ يحل هذه المشاكل الثلاث</p>
+      <h2 class="showcase-title" id="showcase-heading">
+        نظام واحد يجمع<br><span>مشاريعك وعمالك ومخزونك</span>
+      </h2>
+      <p class="showcase-desc">
+        تفتحه من هاتفك وتشوف كل شيء في 10 ثوانٍ — بدون تعقيد وبدون تدريب.
+      </p>
+
+      <ul class="showcase-list">
+        <li>
+          <div class="showcase-list-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <div class="showcase-list-text">
+            <strong>إدارة المشاريع</strong>
+            <span>تتبع كل مشروع من البداية للتسليم مع تقارير يومية واضحة</span>
+          </div>
+        </li>
+        <li>
+          <div class="showcase-list-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          </div>
+          <div class="showcase-list-text">
+            <strong>إدارة العمالة</strong>
+            <span>حضور وغياب وإنتاجية كل عامل في الموقع — كل شيء موثق</span>
+          </div>
+        </li>
+        <li>
+          <div class="showcase-list-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 001 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+          </div>
+          <div class="showcase-list-text">
+            <strong>مراقبة المخزون</strong>
+            <span>تنبيهات تلقائية عند انخفاض المواد قبل ما تتوقف الشغل</span>
+          </div>
+        </li>
+        <li>
+          <div class="showcase-list-icon">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
+          <div class="showcase-list-text">
+            <strong>التقارير المالية</strong>
+            <span>اعرف أرباح كل مشروع بدقة وفي الوقت الفعلي — مش بعد ما يخلص</span>
+          </div>
+        </li>
+      </ul>
+
+      <a href="#" class="btn-hero" style="display:inline-flex;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        شاهد كيف يعمل
+      </a>
+    </div>
+
+    <!-- Phone mockup -->
+    <div class="showcase-phone-wrap">
+
+      <!-- Floating badge left -->
+      <div class="showcase-badge showcase-badge-left">
+        <div class="sbadge-icon" style="background:#ECFDF5;">
+          <svg viewBox="0 0 24 24" style="stroke:#059669"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <div class="sbadge-text">
+          <strong>6 مهام مكتملة</strong>
+          <span>اليوم</span>
+        </div>
+      </div>
+
+      <!-- Floating badge right -->
+      <div class="showcase-badge showcase-badge-right">
+        <div class="sbadge-icon" style="background:var(--purple-pale);">
+          <svg viewBox="0 0 24 24" style="stroke:var(--purple)"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+        </div>
+        <div class="sbadge-text">
+          <strong>+12 عميل جديد</strong>
+          <span>هذا الأسبوع</span>
+        </div>
+      </div>
+
+      <!-- Phone -->
+      <div class="phone-frame">
+        <div class="phone-notch">
+          <div class="phone-notch-cam"></div>
+          <div class="phone-notch-mic"></div>
+        </div>
+        <div class="phone-screen">
+
+          <!-- App header -->
+          <div class="app-header">
+            <div class="app-header-top">
+              <div>
+                <div class="app-greeting">مرحباً بك 👋</div>
+                <div class="app-name">لوحة تحكم AppCo</div>
+              </div>
+              <div class="app-avatar">م</div>
+            </div>
+            <div class="app-stats-row">
+              <div class="app-stat-pill">
+                <div class="app-stat-pill-num">248</div>
+                <div class="app-stat-pill-lbl">عميل نشط</div>
+              </div>
+              <div class="app-stat-pill">
+                <div class="app-stat-pill-num">98%</div>
+                <div class="app-stat-pill-lbl">رضا العملاء</div>
+              </div>
+              <div class="app-stat-pill">
+                <div class="app-stat-pill-num">14</div>
+                <div class="app-stat-pill-lbl">مهمة اليوم</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- App body -->
+          <div class="app-body">
+            <div class="app-section-label">المهام الجارية</div>
+            <div class="app-task-list">
+              <div class="app-task">
+                <div class="app-task-dot" style="background:#059669;"></div>
+                <div class="app-task-info">
+                  <div class="app-task-name">متابعة عروض الأسعار</div>
+                  <div class="app-task-sub">سارة — منذ ساعتين</div>
+                </div>
+                <span class="app-task-badge badge-done">مكتمل</span>
+              </div>
+              <div class="app-task">
+                <div class="app-task-dot" style="background:var(--purple);"></div>
+                <div class="app-task-info">
+                  <div class="app-task-name">تقرير المبيعات الشهري</div>
+                  <div class="app-task-sub">أحمد — جارٍ الآن</div>
+                </div>
+                <span class="app-task-badge badge-prog">جاري</span>
+              </div>
+              <div class="app-task">
+                <div class="app-task-dot" style="background:#D97706;"></div>
+                <div class="app-task-info">
+                  <div class="app-task-name">اجتماع العميل الجديد</div>
+                  <div class="app-task-sub">خالد — الساعة 3:00 م</div>
+                </div>
+                <span class="app-task-badge badge-wait">قريباً</span>
+              </div>
+            </div>
+
+            <div class="app-section-label">أداء هذا الأسبوع</div>
+            <div class="app-chart-area">
+              <div class="app-chart-label">المبيعات اليومية</div>
+              <div class="app-chart-bars">
+                <div class="app-bar" style="height:45%;"></div>
+                <div class="app-bar" style="height:60%;"></div>
+                <div class="app-bar" style="height:40%;"></div>
+                <div class="app-bar active" style="height:80%;"></div>
+                <div class="app-bar" style="height:70%;"></div>
+                <div class="app-bar" style="height:55%;"></div>
+                <div class="app-bar active" style="height:90%;"></div>
+              </div>
+            </div>
+
+            <div class="app-notif">
+              <div class="app-notif-icon">
+                <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg>
+              </div>
+              <div class="app-notif-text">
+                <strong>تنبيه: عميل جديد بانتظار الرد</strong>
+                <span>منذ 5 دقائق — اضغط للمتابعة</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─────────────────── HOW IT WORKS ─────────────────── -->
+<section class="hiw" id="how" aria-labelledby="hiw-heading">
+  <div class="hiw-inner">
+
+    <div class="hiw-header">
+      <p class="hiw-eyebrow">كيف يعمل</p>
+      <h2 class="hiw-title" id="hiw-heading">ابدأ في ٣ خطوات بسيطة</h2>
+      <p class="hiw-desc">لا تدريب معقد، لا إعداد طويل. تبدأ تستفيد من أول يوم.</p>
+    </div>
+
+    <div class="hiw-steps">
+
+      <!-- connector line -->
+      <div class="hiw-line" aria-hidden="true"></div>
+
+      <div class="hiw-step">
+        <div class="hiw-circle">١</div>
+        <h3 class="hiw-step-title">سجّل شركتك</h3>
+        <p class="hiw-step-desc">أنشئ حسابك في أقل من دقيقتين — بدون بطاقة بنكية، وأدخل بيانات شركتك الأساسية.</p>
+      </div>
+
+      <div class="hiw-step">
+        <div class="hiw-circle">٢</div>
+        <h3 class="hiw-step-title">أضف مشاريعك وفريقك</h3>
+        <p class="hiw-step-desc">سجّل مشاريعك الحالية وأضف العمال والمخزون — النظام يرشدك خطوة بخطوة.</p>
+      </div>
+
+      <div class="hiw-step">
+        <div class="hiw-circle">٣</div>
+        <h3 class="hiw-step-title">تابع وتحكم من أي مكان</h3>
+        <p class="hiw-step-desc">ابدأ المتابعة الفورية، واحصل على تقارير التشغيلية والمالية في أي وقت تريد.</p>
+      </div>
+
+    </div>
+
+    <!-- <div class="hiw-cta">
+      <a href="#" class="btn-hero" style="display:inline-flex;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        جرّب مجاناً الآن
+      </a>
+    </div> -->
+
+  </div>
+</section>
+
+<style>
+  .hiw {
+    background: var(--white);
+    padding: 110px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hiw::before {
+    content: '';
+    position: absolute;
+    top: -150px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(108,92,231,0.06) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .hiw-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 2; }
+
+  .hiw-header { text-align: center; margin-bottom: 72px; }
+
+  .hiw-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--purple);
+    margin-bottom: 16px;
+  }
+
+  .hiw-title {
+    font-size: clamp(32px, 5vw, 54px);
+    font-weight: 900;
+    color: var(--gray-900);
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+    margin-bottom: 14px;
+  }
+
+  .hiw-desc {
+    font-size: 15px;
+    color: var(--gray-400);
+    line-height: 1.7;
+  }
+
+  /* Steps row */
+  .hiw-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    position: relative;
+    margin-bottom: 56px;
+  }
+
+  /* Horizontal connector line */
+  .hiw-line {
+    position: absolute;
+    top: 36px;
+    left: calc(16.66% + 36px);
+    right: calc(16.66% + 36px);
+    height: 2px;
+    background: linear-gradient(90deg, rgba(108,92,231,0.6), rgba(162,155,254,0.4), rgba(108,92,231,0.6));
+    z-index: 0;
+  }
+
+  .hiw-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hiw-circle {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    background: var(--purple-pale);
+    border: 2px solid rgba(108,92,231,0.25);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--purple);
+    margin-bottom: 28px;
+    transition: background 0.3s, border-color 0.3s;
+  }
+
+  .hiw-step:hover .hiw-circle {
+    background: var(--purple);
+    border-color: var(--purple);
+    color: white;
+  }
+
+  .hiw-step-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--gray-900);
+    margin-bottom: 12px;
+    letter-spacing: -0.4px;
+  }
+
+  .hiw-step-desc {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--gray-400);
+  }
+
+  .hiw-line {
+    position: absolute;
+    top: 36px;
+    left: calc(16.66% + 36px);
+    right: calc(16.66% + 36px);
+    height: 1.5px;
+    background: linear-gradient(90deg, rgba(108,92,231,0.3), rgba(162,155,254,0.2), rgba(108,92,231,0.3));
+    z-index: 0;
+  }
+
+  .hiw-cta { text-align: center; }
+
+  @media (max-width: 700px) {
+    .hiw-steps { grid-template-columns: 1fr; gap: 40px; }
+    .hiw-line { display: none; }
+    .hiw { padding: 80px 20px; }
+  }
+</style>
+
+<!-- ─────────────────── WHY US ─────────────────── -->
+<section class="why" id="why" aria-labelledby="why-heading">
+  <div class="why-inner">
+
+    <div class="why-header">
+      <div class="why-eyebrow">
+        <div class="why-eyebrow-line"></div>
+        بعض الأسباب
+        <div class="why-eyebrow-line"></div>
+      </div>
+      <h2 class="why-title" id="why-heading">لماذا <span>نظامنا؟</span></h2>
+      <p class="why-desc">صمّمنا AppCo بناءً على مشاكل حقيقية سمعناها من مئات الشركات. كل ميزة هنا تحل مشكلة بالاسم.</p>
+    </div>
+
+    <div class="why-grid">
+
+      <div class="why-item">
+        <div class="why-item-top">
+          <span class="why-num">01</span>
+          <div class="why-num-line"></div>
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+        </div>
+        <h3 class="why-item-title">سرعة استجابة فورية</h3>
+        <p class="why-item-desc">النظام يستجيب خلال أقل من 0.3 ثانية. لا انتظار، لا تحميل، لا إضاعة وقت الفريق.</p>
+      </div>
+
+      <div class="why-item">
+        <div class="why-item-top">
+          <span class="why-num">02</span>
+          <div class="why-num-line"></div>
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+        </div>
+        <h3 class="why-item-title">دعم بشري 24/7</h3>
+        <p class="why-item-desc">ليس بوتاً — إنسان حقيقي يرد خلال دقيقتين في أي وقت من الليل أو النهار.</p>
+      </div>
+
+      <div class="why-item">
+        <div class="why-item-top">
+          <span class="why-num">03</span>
+          <div class="why-num-line"></div>
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+        </div>
+        <h3 class="why-item-title">أمان بمعيار بنكي</h3>
+        <p class="why-item-desc">تشفير AES-256 لكل بياناتك. ضمان استرداد البيانات خلال 30 يوماً بدون قيود.</p>
+      </div>
+
+      <div class="why-item">
+        <div class="why-item-top">
+          <span class="why-num">04</span>
+          <div class="why-num-line"></div>
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+        </div>
+        <h3 class="why-item-title">تطوير مستمر وأجايل</h3>
+        <p class="why-item-desc">نُصدر تحديثات أسبوعية بناءً على طلبات المستخدمين. اقتراحك اليوم يصبح ميزة الأسبوع القادم.</p>
+      </div>
+
+      <div class="why-item">
+        <div class="why-item-top">
+          <span class="why-num">05</span>
+          <div class="why-num-line"></div>
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          </div>
+        </div>
+        <h3 class="why-item-title">تجربة مجانية كاملة</h3>
+        <p class="why-item-desc">14 يوماً مجاناً بكامل الميزات، بدون بطاقة ائتمان. جرّب وقرّر بعدين.</p>
+      </div>
+
+      <div class="why-item">
+        <div class="why-item-top">
+          <span class="why-num">06</span>
+          <div class="why-num-line"></div>
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          </div>
+        </div>
+        <h3 class="why-item-title">سهولة استخدام عالية</h3>
+        <p class="why-item-desc">واجهة بسيطة يتعلمها أي موظف خلال 10 دقائق دون تدريب. مصمّمة للإنسان أولاً.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ─────────────────── PRICING ─────────────────── -->
+<section class="pricing" id="pricing" aria-labelledby="pricing-heading">
+  <div class="pricing-inner">
+
+    <div class="pricing-header">
+      <p class="pricing-eyebrow">الباقات</p>
+      <h2 class="pricing-title" id="pricing-heading">أسعار بسيطة وشفافة</h2>
+      <p class="pricing-sub">بدون عقود. بدون رسوم مخفية.</p>
+      <div class="pricing-toggle">
+        <button class="toggle-btn active" onclick="setMonthly(this)">شهري</button>
+        <button class="toggle-btn" onclick="setYearly(this)">
+          سنوي <span class="toggle-save">وفّر 20%</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="pricing-grid">
+
+      <!-- Base -->
+      <div class="pricing-card">
+        <p class="pricing-plan">الباقة الأساسية</p>
+        <div class="pricing-price">
+          <span class="price-currency">ر.ع</span>
+          <span class="price-amount" data-monthly="5" data-yearly="50">5</span>
+          <span class="price-period">ر.عر.ع/شهر</span>
+        </div>
+        <p class="pricing-desc">مشروع واحد، حتى 10 عمال. مثالية للبداية.</p>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li><div class="feat-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>مشروع واحد</li>
+          <li><div class="feat-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>حتى 10 عمال</li>
+          <li><div class="feat-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>إدارة المخزون</li>
+          <li><div class="feat-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>تقارير أساسية</li>
+          <li><div class="feat-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>دعم واتساب</li>
+        </ul>
+        <a href="#" class="btn-pricing btn-pricing--outline">ابدأ مجاناً</a>
+      </div>
+
+      <!-- Pro — Most Popular -->
+      <div class="pricing-card pricing-card--popular">
+        <div class="popular-badge">⭐ الأكثر طلباً</div>
+        <p class="pricing-plan">الباقة المتقدمة</p>
+        <div class="pricing-price">
+          <span class="price-currency">ر.ع</span>
+          <span class="price-amount" data-monthly="10" data-yearly="100">10</span>
+          <span class="price-period">/شهر</span>
+        </div>
+        <p class="pricing-desc">حتى 5 مشاريع، حتى 50 عامل. الأشهر والأنسب.</p>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li><div class="feat-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>حتى 5 مشاريع</li>
+          <li><div class="feat-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>حتى 50 عامل</li>
+          <li><div class="feat-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>إدارة المخزون الكاملة</li>
+          <li><div class="feat-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>تقارير مالية متقدمة</li>
+          <li><div class="feat-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>واتساب مدمج + دعم أولوية</li>
+        </ul>
+        <a href="#" class="btn-pricing btn-pricing--white">ترقية الآن</a>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="pricing-card">
+        <p class="pricing-plan">الباقة الاحترافية</p>
+        <div class="pricing-price">
+          <span class="price-currency">ر.ع</span>
+          <span class="price-amount" data-monthly="15" data-yearly="150">15</span>
+          <span class="price-period">/شهر</span>
+        </div>
+        <p class="pricing-desc">مشاريع وعمال غير محدودين. لشركات المقاولات الكبيرة.</p>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li><div class="feat-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>مشاريع غير محدودة</li>
+          <li><div class="feat-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>عمال غير محدودين</li>
+          <li><div class="feat-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>جميع مميزات المتقدمة</li>
+          <li><div class="feat-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>تقارير مخصصة + مدير حساب</li>
+          <li><div class="feat-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>تدريب الفريق مجاناً</li>
+        </ul>
+        <a href="#" class="btn-pricing btn-pricing--outline">تواصل معنا</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  function setMonthly(btn) {
+    btn.classList.add('active');
+    btn.nextElementSibling.classList.remove('active');
+    document.querySelectorAll('.price-amount').forEach(el => {
+      el.textContent = el.dataset.monthly;
+    });
+  }
+  function setYearly(btn) {
+    btn.classList.add('active');
+    btn.previousElementSibling.classList.remove('active');
+    document.querySelectorAll('.price-amount').forEach(el => {
+      el.textContent = el.dataset.yearly;
+    });
+  }
+</script>
+
+<!-- ─────────────────── CTA ─────────────────── -->
+<section class="cta-section" aria-label="Call to action">
+  <div class="cta-inner">
+
+    <!-- Decorative blobs -->
+    <div class="cta-blob cta-blob-1" aria-hidden="true"></div>
+    <div class="cta-blob cta-blob-2" aria-hidden="true"></div>
+
+    <div class="cta-content">
+      <div class="cta-badge">
+        <span class="cta-badge-dot"></span>
+        ابدأ اليوم
+      </div>
+
+      <h2 class="cta-title">
+        شركتك تستحق نظاماً<br>
+        <span>يواكب طموحاتك</span>
+      </h2>
+
+      <p class="cta-desc">
+        ابدأ تجربتك المجانية الآن — فريقنا يساعدك في الإعداد خلال 24 ساعة. بدون عقود. بدون التزامات.
+      </p>
+
+      <div class="cta-notice">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--purple-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        الباقة الأساسية <strong>مجانية تماماً</strong> — لا بطاقة ائتمانية مطلوبة. ابدأ الآن.
+      </div>
+
+      <div class="cta-btns">
+        <a href="#" class="btn-cta-primary">
+          سجّل مجاناً الآن
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#" class="btn-cta-ghost">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          تواصل مع الفريق
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .cta-section {
+    background: #0f1a2e;
+    padding: 120px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-blob {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(80px);
+  }
+
+  .cta-blob-1 {
+    width: 420px; height: 420px;
+    background: rgba(108,92,231,0.25);
+    top: -100px; right: -80px;
+  }
+
+  .cta-blob-2 {
+    width: 300px; height: 300px;
+    background: rgba(162,155,254,0.12);
+    bottom: -80px; left: 10%;
+  }
+
+  .cta-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .cta-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--purple-light);
+    background: rgba(108,92,231,0.15);
+    border: 1px solid rgba(108,92,231,0.3);
+    padding: 7px 16px;
+    border-radius: 100px;
+    margin-bottom: 28px;
+  }
+
+  .cta-badge-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--purple-light);
+    animation: pulse-dot 1.8s ease-in-out infinite;
+  }
+
+  .cta-title {
+    font-size: clamp(36px, 5vw, 60px);
+    font-weight: 900;
+    color: white;
+    letter-spacing: -2px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+
+  .cta-title span {
+    color: var(--purple-light);
+    position: relative;
+  }
+
+  .cta-title span::after {
+    content: '';
+    position: absolute;
+    bottom: 4px; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--purple), var(--purple-light));
+    border-radius: 2px;
+    opacity: 0.5;
+  }
+
+  .cta-desc {
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 36px;
+  }
+
+  /* Trust row */
+  .cta-trust {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .cta-avatars { display: flex; }
+
+  .cta-av {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    border: 2px solid #0f1a2e;
+    margin-left: -10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 800;
+    color: white;
+  }
+
+  .cta-avatars .cta-av:first-child { margin-left: 0; }
+
+  .cta-av-more {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.2);
+    font-size: 9px;
+    color: rgba(255,255,255,0.7);
+    width: 40px;
+    border-radius: 20px;
+    padding: 0 6px;
+  }
+
+  .cta-trust-text {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* Notice bar */
+  .cta-notice {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(108,92,231,0.12);
+    border: 1px solid rgba(108,92,231,0.25);
+    border-radius: 12px;
+    padding: 12px 20px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 40px;
+    line-height: 1.5;
+  }
+
+  .cta-notice strong {
+    color: var(--purple-light);
+    font-weight: 700;
+  }
+
+  /* Buttons */
+  .cta-btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .btn-cta-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font);
+    font-size: 15px;
+    font-weight: 700;
+    color: white;
+    background: var(--purple);
+    padding: 16px 32px;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    box-shadow: 0 8px 32px rgba(108,92,231,0.5);
+    transition: all 0.22s;
+  }
+
+  .btn-cta-primary:hover {
+    background: var(--purple-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 40px rgba(108,92,231,0.6);
+  }
+
+  .btn-cta-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font);
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.65);
+    background: rgba(255,255,255,0.06);
+    border: 1.5px solid rgba(255,255,255,0.12);
+    padding: 15px 28px;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: all 0.22s;
+  }
+
+  .btn-cta-ghost:hover {
+    color: white;
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.25);
+  }
+
+  @media (max-width: 600px) {
+    .cta-section { padding: 80px 20px; }
+    .cta-btns { flex-direction: column; }
+    .btn-cta-primary, .btn-cta-ghost { width: 100%; justify-content: center; }
+  }
+</style>
+
+<!-- ─────────────────── REVIEWS ─────────────────── -->
+<section class="reviews" aria-labelledby="reviews-heading">
+  <div class="reviews-header">
+    <p class="reviews-eyebrow">آراء المقاولين</p>
+    <h2 class="reviews-title" id="reviews-heading">ماذا يقول المقاولون؟</h2>
+  </div>
+  <div class="reviews-track-wrap">
+    <div class="reviews-track" id="reviewsTrack">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"قبل مقاول+ كنت أعرف وضع مشاريعي بعد فوات الأوان. الآن أفتح هاتفي وأشوف كل شيء في ثوانٍ."</p>
+        <div class="review-author">
+          <div class="review-av" style="background:#6C5CE7;">أ</div>
+          <div><strong>أبو خالد</strong><span>مقاول في مسقط — يدير 4 مشاريع</span></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"وفّر علّي ساعتين كل يوم كنت أضيعهم في واتساب والإكسل. الفورمن الآن يدخل البيانات مباشرة وأنا أشوف كل شيء."</p>
+        <div class="review-author">
+          <div class="review-av" style="background:#00B894;">أ</div>
+          <div><strong>أبو سالم</strong><span>شركة مقاولات بمسقط — 30 عامل</span></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"المخزون كان دايم مشكلة — المواد تنتهي وما أعرف إلا لما يتوقف الشغل. الآن آخذ تنبيه قبل يومين."</p>
+        <div class="review-author">
+          <div class="review-av" style="background:#A29BFE;">م</div>
+          <div><strong>محمد الشحي</strong><span>مقاول مباني — مسقط</span></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"أول ما شغّلت النظام اكتشفت إن في مشروع كان خاسر من الأول وما أعرف. الآن ما أبدأ مشروع بدون مقاول+."</p>
+        <div class="review-author">
+          <div class="review-av" style="background:#FDCB6E;color:#333;">ع</div>
+          <div><strong>عبدالله الرواحي</strong><span>شركة مقاولات صغيرة — صحار</span></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"الفورمن معاه هاتف وبيدخل الحضور كل يوم. أنا بالمكتب وأشوف كل شيء. هذا اللي كنت أبغاه من زمان."</p>
+        <div class="review-author">
+          <div class="review-av" style="background:#E17055;">خ</div>
+          <div><strong>خالد البلوشي</strong><span>مقاول عام — مسقط الكبرى</span></div>
+        </div>
+      </div>
+    </div>
+    <button class="reviews-arrow reviews-arrow--prev" onclick="scrollReviews(-1)" aria-label="السابق">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <button class="reviews-arrow reviews-arrow--next" onclick="scrollReviews(1)" aria-label="التالي">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  </div>
+</section>
+
+<!-- ─────────────────── FAQ ─────────────────── -->
+<section class="faq" id="faq" aria-labelledby="faq-heading">
+  <div class="faq-inner">
+    <div class="faq-header">
+      <p class="faq-eyebrow">أسئلة شائعة</p>
+      <h2 class="faq-title" id="faq-heading">نجيب على<br>أسئلتك</h2>
+    </div>
+
+    <div class="faq-list">
+
+      <div class="faq-item active" onclick="toggleFaq(this)">
+        <div class="faq-item-head">
+          <span class="faq-item-q">هل بياناتي آمنة في السحابة؟</span>
+          <button class="faq-toggle" aria-label="إغلاق">
+            <svg class="icon-close" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            <svg class="icon-open" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </div>
+        <div class="faq-item-body">
+          <p>نعم. نستخدم تشفيراً كاملاً AES-256 وخوادم موثوقة. بياناتك لك فقط ولن نشاركها مع أي جهة مهما كانت الظروف.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-item-head">
+          <span class="faq-item-q">هل يحتاج فريقي تدريباً طويلاً؟</span>
+          <button class="faq-toggle" aria-label="فتح">
+            <svg class="icon-close" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            <svg class="icon-open" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </div>
+        <div class="faq-item-body">
+          <p>لا. النظام مصمم بواجهة بسيطة يفهمها أي موظف في أقل من ساعة. ونوفر تدريباً مدفوعاً إن احتجت.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-item-head">
+          <span class="faq-item-q">ماذا لو أردت إلغاء الاشتراك؟</span>
+          <button class="faq-toggle" aria-label="فتح">
+            <svg class="icon-close" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            <svg class="icon-open" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </div>
+        <div class="faq-item-body">
+          <p>لا عقود طويلة، لا غرامات. يمكنك الإلغاء في أي وقت وتحميل كل بياناتك قبل المغادرة بضغطة واحدة.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-item-head">
+          <span class="faq-item-q">هل يناسب شركتي الصغيرة؟</span>
+          <button class="faq-toggle" aria-label="فتح">
+            <svg class="icon-close" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            <svg class="icon-open" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </div>
+        <div class="faq-item-body">
+          <p>بالتأكيد. AppCo مصمم للشركات من كل الأحجام — من المقاول الفردي إلى الشركة التي تدير عشرات المشاريع.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-item-head">
+          <span class="faq-item-q">هل يعمل على الجوال؟</span>
+          <button class="faq-toggle" aria-label="فتح">
+            <svg class="icon-close" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            <svg class="icon-open" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </div>
+        <div class="faq-item-body">
+          <p>نعم، تطبيق iOS وAndroid متاح بكامل الميزات. أدِر شركتك من أي مكان في العالم.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-item-head">
+          <span class="faq-item-q">كيف أبدأ التجربة المجانية؟</span>
+          <button class="faq-toggle" aria-label="فتح">
+            <svg class="icon-close" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            <svg class="icon-open" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </div>
+        <div class="faq-item-body">
+          <p>سجّل بإيميلك فقط وستكون جاهزاً خلال دقيقة. لا بطاقة ائتمانية، لا التزامات، 14 يوماً مجانية كاملة.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq { background: var(--gray-50); padding: 100px 32px; }
+  .faq-inner { max-width: 680px; margin: 0 auto; }
+
+  .faq-header { text-align: center; margin-bottom: 52px; }
+  .faq-eyebrow { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--gray-400); margin-bottom: 14px; }
+  .faq-title { font-size: clamp(36px, 5vw, 56px); font-weight: 900; color: var(--gray-900); letter-spacing: -2px; line-height: 1.1; }
+
+  .faq-list { display: flex; flex-direction: column; gap: 10px; }
+
+  .faq-item {
+    background: var(--gray-50);
+    border: 1.5px solid var(--gray-100);
+    border-radius: 16px;
+    padding: 20px 22px;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+    user-select: none;
+  }
+
+  .faq-item.active {
+    background: white;
+    border-color: rgba(108,92,231,0.15);
+    box-shadow: 0 4px 24px rgba(108,92,231,0.07);
+  }
+
+  .faq-item-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .faq-item-q {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gray-900);
+    line-height: 1.4;
+  }
+
+  .faq-toggle {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    border: 1.5px solid var(--gray-100);
+    background: var(--gray-50);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    cursor: pointer;
+    color: var(--gray-600);
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+    pointer-events: none;
+  }
+
+  .faq-item.active .faq-toggle {
+    background: var(--gray-900);
+    border-color: var(--gray-900);
+    color: white;
+  }
+
+  .icon-close { display: none; }
+  .icon-open  { display: block; }
+  .faq-item.active .icon-close { display: block; }
+  .faq-item.active .icon-open  { display: none; }
+
+  .faq-item-body {
+    display: none;
+    padding-top: 14px;
+    padding-left: 0;
+  }
+
+  .faq-item.active .faq-item-body { display: block; }
+
+  .faq-item-body p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--gray-400);
+  }
+
+  @media (max-width: 600px) {
+    .faq { padding: 72px 20px; }
+  }
+</style>
+
+<script>
+  function toggleFaq(item) {
+    const isActive = item.classList.contains('active');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+    if (!isActive) item.classList.add('active');
+  }
+</script>
+
+<style>
+  .reviews { background: var(--white); padding: 100px 0 100px 32px; overflow: hidden; }
+  .reviews-header { max-width: 1100px; margin: 0 auto 48px; padding-right: 32px; }
+  .reviews-eyebrow { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--purple); margin-bottom: 10px; }
+  .reviews-title { font-size: clamp(26px, 3vw, 38px); font-weight: 900; color: var(--gray-900); letter-spacing: -1px; }
+  .reviews-track-wrap { position: relative; }
+  .reviews-track { display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none; padding-bottom: 8px; padding-right: 32px; -webkit-overflow-scrolling: touch; }
+  .reviews-track::-webkit-scrollbar { display: none; }
+  .review-card { background: var(--gray-50); border: 1.5px solid var(--gray-100); border-radius: 20px; padding: 28px; min-width: 320px; max-width: 320px; flex-shrink: 0; transition: border-color 0.2s, box-shadow 0.2s; }
+  .review-card:hover { border-color: rgba(108,92,231,0.25); box-shadow: 0 8px 32px rgba(108,92,231,0.08); }
+  .review-stars { color: #FDCB6E; font-size: 15px; letter-spacing: 2px; margin-bottom: 14px; }
+  .review-text { font-size: 14px; line-height: 1.8; color: var(--gray-600); margin-bottom: 20px; font-style: italic; }
+  .review-author { display: flex; align-items: center; gap: 10px; }
+  .review-av { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; color: white; flex-shrink: 0; }
+  .review-author strong { display: block; font-size: 13px; font-weight: 700; color: var(--gray-900); }
+  .review-author span { font-size: 11px; color: var(--gray-400); }
+  .reviews-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; background: white; border: 1.5px solid var(--gray-100); box-shadow: 0 4px 16px rgba(0,0,0,0.08); display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--gray-600); transition: all 0.2s; z-index: 5; }
+  .reviews-arrow:hover { background: var(--purple); color: white; border-color: var(--purple); }
+  .reviews-arrow--prev { left: 8px; }
+  .reviews-arrow--next { right: 8px; }
+
+  .faq { background: var(--gray-50); padding: 100px 32px; }
+  .faq-inner { max-width: 1100px; margin: 0 auto; }
+  .faq-header { margin-bottom: 64px; }
+  .faq-eyebrow { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--purple); margin-bottom: 16px; }
+  .faq-title { font-size: clamp(36px, 5vw, 60px); font-weight: 900; color: var(--gray-900); letter-spacing: -2px; line-height: 1.1; text-align: right; margin-bottom: 16px; }
+  .faq-title span { color: var(--purple); }
+  .faq-title-line { width: 48px; height: 3px; background: var(--purple); border-radius: 2px; margin-right: auto; }
+  .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .faq-item { background: white; border-radius: 16px; padding: 28px; border: 1.5px solid var(--gray-100); transition: border-color 0.2s, box-shadow 0.2s; }
+  .faq-item:hover { border-color: rgba(108,92,231,0.2); box-shadow: 0 8px 28px rgba(108,92,231,0.07); }
+  .faq-q-wrap { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; }
+  .faq-q-icon { width: 22px; height: 22px; border-radius: 6px; background: var(--purple-pale); color: var(--purple); font-size: 13px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+  .faq-q { font-size: 16px; font-weight: 700; color: var(--gray-900); line-height: 1.4; letter-spacing: -0.3px; }
+  .faq-a { font-size: 14px; line-height: 1.8; color: var(--gray-400); padding-right: 32px; }
+
+  @media (max-width: 900px) {
+    .faq-grid { grid-template-columns: 1fr; }
+    .reviews { padding: 80px 0; }
+    .reviews-header { padding: 0 20px; }
+    .reviews-track { padding: 0 20px 8px; }
+    .reviews-arrow { display: none; }
+  }
+</style>
+
+<script>
+  function scrollReviews(dir) {
+    document.getElementById('reviewsTrack').scrollBy({ left: dir * 360, behavior: 'smooth' });
+  }
+</script>
+
+<script>
+  const links = document.querySelector('.nav-links');
+  if (ham && links) {
+    ham.addEventListener('click', () => {
+      const open = ham.getAttribute('aria-expanded') === 'true';
+      ham.setAttribute('aria-expanded', !open);
+      if (!open) {
+        links.style.cssText = 'display:flex;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:white;padding:16px 20px;border-bottom:1px solid #EEF0F6;gap:4px;';
+      } else {
+        links.style.cssText = '';
+      }
+    });
+  }
+</script>
+<!-- ─────────────────── FOOTER ─────────────────── -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-inner">
+
+      <!-- Brand col -->
+      <div class="footer-brand">
+        <a href="#" class="footer-logo">
+          <div class="footer-logo-icon">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="white"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <span><span class="footer-logo-accent">App</span>Co</span>
+        </a>
+        <p class="footer-brand-desc">في مقاول+ نحن أكثر من مجرد منصة — بل شركاء في رحلتك نحو التميز. انطلاقاً من الفهم العميق لتحديات قطاع المقاولات نسعى لتطوير حلول رقمية مبتكرة تحول التعقيدات إلى عمليات منظمة ومربحة.</p>
+        <div class="footer-social">
+          <!-- Telegram -->
+          <a href="#" class="footer-social-btn" aria-label="تيليغرام">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          </a>
+          <!-- Snapchat -->
+          <a href="#" class="footer-social-btn" aria-label="سناب شات">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12.065 1.645c3.374 0 6.315 2.486 6.315 6.527v.948c0 .236.048.35.271.413.564.158 1.17.29 1.732.43.36.088.578.285.578.606 0 .442-.322.71-.895.71-.13 0-.26-.014-.391-.028-.274-.028-.543-.073-.816-.073-.261 0-.408.043-.408.332 0 .13.014.264.028.397.043.438.1.877.1 1.32 0 1.974-1.27 3.594-3.05 4.36-.19.083-.254.185-.23.389.13 1.093.844 1.754 1.987 1.754.49 0 .976-.13 1.419-.32.145-.059.274-.101.4-.101.346 0 .633.268.633.62 0 .636-.847 1.113-1.854 1.113-.49 0-.985-.113-1.463-.296-.49-.185-.959-.426-1.463-.426-.534 0-1.052.287-1.532.635-1.013.726-2.13 1.084-3.274 1.084-1.168 0-2.284-.365-3.281-1.084-.48-.348-.998-.635-1.532-.635-.504 0-.972.241-1.463.426-.478.183-.972.296-1.463.296-1.007 0-1.854-.477-1.854-1.113 0-.352.287-.62.634-.62.126 0 .254.042.4.1.443.19.929.32 1.418.32 1.143 0 1.857-.66 1.988-1.754.024-.204-.04-.306-.23-.388-1.78-.766-3.05-2.387-3.05-4.36 0-.444.057-.883.1-1.32.014-.134.028-.268.028-.398 0-.289-.147-.332-.408-.332-.273 0-.542.045-.816.073-.13.014-.261.028-.391.028-.573 0-.895-.268-.895-.71 0-.321.218-.518.578-.607.562-.138 1.168-.27 1.732-.429.223-.062.271-.177.271-.413v-.948c0-4.041 2.94-6.527 6.315-6.527z"/></svg>
+          </a>
+          <!-- LinkedIn -->
+          <a href="#" class="footer-social-btn" aria-label="لينكد إن">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <!-- Instagram -->
+          <a href="#" class="footer-social-btn" aria-label="إنستغرام">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <!-- Twitter/X -->
+          <a href="#" class="footer-social-btn" aria-label="تويتر">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
+          </a>
+          <!-- Facebook -->
+          <a href="#" class="footer-social-btn" aria-label="فيسبوك">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <!-- WhatsApp -->
+          <a href="#" class="footer-social-btn" aria-label="واتساب">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Links cols -->
+      <div class="footer-col">
+        <h4 class="footer-col-title">من نحن</h4>
+        <ul class="footer-col-links">
+          <li><a href="#">الرئيسية</a></li>
+          <li><a href="#">المميزات</a></li>
+          <li><a href="#">من نحن</a></li>
+          <li><a href="#">إرسال طلب</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title">المميزات</h4>
+        <ul class="footer-col-links">
+          <li><a href="#">إدارة مشاريع شاملة</a></li>
+          <li><a href="#">تحكم كامل في العمالة</a></li>
+          <li><a href="#">مراقبة ذكية للمخزون</a></li>
+          <li><a href="#">تقارير متنوعة وفورية</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title">تواصل معنا</h4>
+        <ul class="footer-col-links">
+          <li><a href="#">موقعنا</a></li>
+          <li><a href="#">بريدنا</a></li>
+          <li><a href="#">هواتفنا</a></li>
+          <li><a href="#">تواصل معنا</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <p>© 2026 mqwel.com. جميع الحقوق محفوظة.</p>
+      <div class="footer-bottom-links">
+        <a href="#">سياسة الخصوصية</a>
+        <a href="#">شروط الاستخدام</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer { background: #0f1a2e; font-family: var(--font); }
+
+  .footer-top { padding: 72px 32px 60px; }
+
+  .footer-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  /* Brand */
+  .footer-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    margin-bottom: 20px;
+  }
+
+  .footer-logo-icon {
+    width: 38px; height: 38px;
+    background: var(--purple);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .footer-logo span {
+    font-size: 20px;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -0.5px;
+  }
+
+  .footer-logo-accent { color: var(--purple-light); }
+
+  .footer-brand-desc {
+    font-size: 13px;
+    line-height: 1.85;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 28px;
+  }
+
+  .footer-social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .footer-social-btn {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+
+  .footer-social-btn:hover {
+    background: var(--purple);
+    border-color: var(--purple);
+    color: white;
+  }
+
+  /* Cols */
+  .footer-col { }
+
+  .footer-col-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 20px;
+    letter-spacing: -0.2px;
+  }
+
+  .footer-col-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-col-links a {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-col-links a:hover { color: white; }
+
+  /* Bottom */
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding: 20px 32px;
+  }
+
+  .footer-bottom-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .footer-bottom p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+  }
+
+  .footer-bottom-links {
+    display: flex;
+    gap: 20px;
+  }
+
+  .footer-bottom-links a {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-bottom-links a:hover { color: rgba(255,255,255,0.7); }
+
+  @media (max-width: 900px) {
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+    .footer-brand { grid-column: span 2; }
+    .footer-bottom-inner { flex-direction: column; text-align: center; }
+  }
+
+  @media (max-width: 500px) {
+    .footer-inner { grid-template-columns: 1fr; }
+    .footer-brand { grid-column: span 1; }
+    .footer-top { padding: 48px 20px; }
+    .footer-bottom { padding: 20px; }
+  }
+</style>
+</body>
+</html>
